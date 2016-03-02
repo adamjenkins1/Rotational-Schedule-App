@@ -43,19 +43,19 @@ public class scheduleDay extends AppCompatActivity {
         {
             if(day == 11) //holidays count in the rotational schedule but shouldn't be in the map
                 period = 2;
-            if(day != 2 && day != 3 && day != 4 && day != 5 && day != 6 && day != 7
-                    && day != 8 && day != 9 && day != 10 && day != 16
-                    && day != 17 && day != 23 && day != 24) {// all weekends in April and spring break should not be added
+
+            // all weekends in April and spring break should not be added
+            if( !(day >= 2 || day <= 10) && day != 16 && day != 17 && day != 23 && day != 24) {
                 if(period >= 7)
                     period = 1;
                 hm.put("Apr " + Integer.toString(day), period);
                 period++;
             }
         }
-        for (int day = 1; day < 28; day++)
+        for (int day = 2; day < 28; day++)
         {
-            if(day != 1 && day != 7 && day != 8 && day != 14 && day != 15
-                    && day != 21 && day != 22) {// all weekends in May should not be added
+            // all weekends in May should not be added
+            if(day != 7 && day != 8 && day != 14 && day != 15 && day != 21 && day != 22) {
                 if(period >= 7)
                     period = 1;
                 hm.put("May " + Integer.toString(day), period);
@@ -115,9 +115,9 @@ public class scheduleDay extends AppCompatActivity {
             errorMessage.setText("Tomorrow's Schedule");
             curDate = (curMonth + " " + Integer.toString(day));
         }
-        //curDate = "May 25";
-        int curPeriod = 0;
+        //curDate = "May 2";
         //errorMessage.setText(curDate);
+        int curPeriod = 0;
         if(hm.get(curDate) != null) {
             curPeriod = hm.get(curDate);
         }
