@@ -8,6 +8,7 @@ import java.text.DateFormat;
 import java.util.Date;
 
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.MenuItem;
 import android.widget.Button;

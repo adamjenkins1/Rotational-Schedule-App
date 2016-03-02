@@ -73,10 +73,19 @@
         android:paddingLeft="7dp"
         android:textStyle="italic"
         android:layout_below="@+id/imageView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_marginTop="29dp"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="21dp"
+        android:ellipsize="marquee"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:text="Today is Feb 28, 2016 10:10:13 PM"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:freezesText="true"/>
 
 </RelativeLayout>

@@ -9,10 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.text.DateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class scheduleMonth extends AppCompatActivity {
-
+    int curMonth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,79 +21,70 @@ public class scheduleMonth extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("2015-16");
         //setSupportActionBar(toolbar);
-        /*
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        */
     }
 
     protected void onStart() {
         super.onStart();
-        TextView errorMessage = (TextView) findViewById(R.id.errorMessage);
-        ImageView monthPicture = (ImageView) findViewById(R.id.monthPicture);
+        final TextView errorMessage = (TextView) findViewById(R.id.errorMessage);
+        final ImageView monthPicture = (ImageView) findViewById(R.id.monthPicture);
+        Calendar calendar = Calendar.getInstance();
         String curDate = DateFormat.getDateInstance().format(new Date());
         Button next = (Button) findViewById(R.id.next);
         Button prev = (Button) findViewById(R.id.prev);
-        final String curMonth = curDate.substring(0, Math.min(curDate.length(), 3));
+        //String curMonth = curDate.substring(0, Math.min(curDate.length(), 3));
+        curMonth = calendar.get(Calendar.MONTH);
+        //errorMessage.setText(Integer.toString(curMonth));
+        //errorMessage.setText(curDate);
+        //curMonth--;
         //errorMessage.setText(curMonth);
         //String curMonth = "Mar";
         errorMessage.setText("");
-        int integerCurMonth = 0;
-        switch(curMonth) {
-            case "Feb": {
-                monthPicture.setImageResource(R.drawable.feburary_nobg);
-                integerCurMonth = 2;
-                break;
-            }
-            case "Mar": {
-                monthPicture.setImageResource(R.drawable.march_nobg);
-                integerCurMonth = 3;
-                break;
-            }
-            case "Apr": {
-                monthPicture.setImageResource(R.drawable.april_nobg);
-                integerCurMonth = 4;
-                break;
-            }
-            case "May": {
-                monthPicture.setImageResource(R.drawable.may_nobg);
-                integerCurMonth = 5;
-                break;
-            }
-            default: {
-                //errorMessage.setText("Month could not be found");
-                errorMessage.setText("Month could not be found");
-                monthPicture.setImageResource(R.drawable.homer_doh_nobg);
-                break;
-            }
-        }// end switch(curMonth)
+        final int[] monthArray = new int[12];
+        monthArray[0] = R.drawable.january_nobg;
+        monthArray[1] = R.drawable.feburary_nobg;
+        monthArray[2] = R.drawable.march_nobg;
+        monthArray[3] = R.drawable.april_nobg;
+        monthArray[4] = R.drawable.may_nobg;
+        monthArray[5] = 0;
+        monthArray[6] = 0;
+        monthArray[7] = R.drawable.august_nobg;
+        monthArray[8] = R.drawable.september_nobg;
+        monthArray[9] = R.drawable.october_nobg;
+        monthArray[10] = R.drawable.november_nobg;
+        monthArray[11] = R.drawable.december_nobg;
+
+        monthPicture.setImageResource(monthArray[curMonth]);
+
+        //curMonth = 5;
+        if(curMonth == 5 || curMonth == 6) {
+            errorMessage.setText("Enjoy your break!\n School will resume in August");
+            monthPicture.setImageResource(R.drawable.freedom);
+        }
+
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*switch (curMonth)
-                {
-                    case "Feb": {
-                        startActivity(new Intent(scheduleMonth.this, scheduleMonth.class));
-                        android.os.Process.killProcess(android.os.Process.myPid());
-                        break;
-                    }
-                }
-                */
+                    curMonth++;
+                    if(curMonth > 11)
+                        curMonth = 0;
+                while(monthArray[curMonth] == 0)
+                    curMonth++;
+                monthPicture.setImageResource(monthArray[curMonth]);
+                errorMessage.setText("");
             }
         });
 
         prev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //integerCurMonth--;
+                curMonth--;
+                if(curMonth < 0)
+                    curMonth = 11;
+                while(monthArray[curMonth] == 0)
+                    curMonth--;
+                monthPicture.setImageResource(monthArray[curMonth]);
+                errorMessage.setText("");
             }
         });
-
     } // end onStart()
 }
