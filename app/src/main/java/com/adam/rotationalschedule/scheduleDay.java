@@ -23,6 +23,7 @@ public class scheduleDay extends AppCompatActivity {
 
         TextView errorMessage = (TextView) findViewById(R.id.test);
         ImageView schedule = (ImageView) findViewById(R.id.daySchedule);
+        ImageView finalSchedule = (ImageView) findViewById(R.id.finalSchedule);
         Map<String, Integer> hm = new HashMap<String, Integer>();
         hm.put("Feb 29", 2);
         int period = 3;
@@ -40,9 +41,11 @@ public class scheduleDay extends AppCompatActivity {
 
         for (int day = 1; day < 30; day++)
         {
+            if(day == 11) //holidays count in the rotational schedule but shouldn't be in the map
+                period = 2;
             if(day != 2 && day != 3 && day != 4 && day != 5 && day != 6 && day != 7
-                    && day != 8 && day != 9 && day != 10
-                    && day != 16 && day != 17 && day != 23) {// all weekends in April and spring break should not be added
+                    && day != 8 && day != 9 && day != 10 && day != 16
+                    && day != 17 && day != 23 && day != 24) {// all weekends in April and spring break should not be added
                 if(period >= 7)
                     period = 1;
                 hm.put("Apr " + Integer.toString(day), period);
@@ -87,41 +90,34 @@ public class scheduleDay extends AppCompatActivity {
             curDate = fullDate.substring(0, Math.min(fullDate.length(), 6));
 
         //iHour = 3;
-        //curDate = "Mar 1"
+        //curDate = "Apr 29";
         if (iHour >= 3 && iHour != 12 && AMPM.equals("PM")) {
             if(curDate.length() == 5) { //curDate = "Feb 1"
                 day = Integer.parseInt(curDate.substring(4, Math.min(curDate.length(), 5)));
                 day++;
-                curDate = (curMonth + " " + Integer.toString(day));
-                errorMessage.setText("Tomorrow's Schedule");
             }
             else if (curDate.equals("Feb 29")){
                 day = 1;
-                curMonth = "Mar ";
-                curDate = (curMonth + " " + Integer.toString(day));
-                errorMessage.setText("Tomorrow's Schedule");
+                curMonth = "Mar";
             }
             else if(curDate.equals("Mar 31")) {
                 day = 1;
-                curMonth = "Apr ";
-                curDate = (curMonth + " " + Integer.toString(day));
-                errorMessage.setText("Tomorrow's Schedule");
+                curMonth = "Apr";
             }
             else if(curDate.equals("Apr 29")) {
-                day = 1;
-                curMonth = "May ";
-                curDate = (curMonth + " " + Integer.toString(day));
-                errorMessage.setText("Tomorrow's Schedule");
+                day = 2;
+                curMonth = "May";
             }
             else {
                 day = Integer.parseInt(curDate.substring(4, Math.min(curDate.length(), 6)));
                 day++;
-                curDate = (curMonth + " " + Integer.toString(day));
-                errorMessage.setText("Tomorrow's Schedule");
             }
+            errorMessage.setText("Tomorrow's Schedule");
+            curDate = (curMonth + " " + Integer.toString(day));
         }
-
+        //curDate = "May 25";
         int curPeriod = 0;
+        //errorMessage.setText(curDate);
         if(hm.get(curDate) != null) {
             curPeriod = hm.get(curDate);
         }
@@ -130,18 +126,18 @@ public class scheduleDay extends AppCompatActivity {
             schedule.setImageResource(R.drawable.freedom);
             return;
         }
-        //special cases: finals week
 
+        //special cases: finals week
         if(curDate.equals("May 25")) {
-            schedule.setImageResource(R.drawable.finals_day_1_nobg);
+            finalSchedule.setImageResource(R.drawable.finals_day_1_nobg);
             return;
         }
         if(curDate.equals("May 26")) {
-            schedule.setImageResource(R.drawable.finals_day_2_nobg);
+            finalSchedule.setImageResource(R.drawable.finals_day_2_nobg);
             return;
         }
         if(curDate.equals("May 27")) {
-            schedule.setImageResource(R.drawable.finals_day_3_nobg);
+            finalSchedule.setImageResource(R.drawable.finals_day_3_nobg);
             return;
         }
 
@@ -153,6 +149,7 @@ public class scheduleDay extends AppCompatActivity {
         collabDays[3] = R.drawable.start_with_4_collab_nobg;
         collabDays[4] = R.drawable.start_with_5_collab_nobg;
         collabDays[5] = R.drawable.start_with_6_collab_nobg;
+
         //special cases: collaboration days
         if(curDate.equals("Mar 2") || curDate.equals("Mar 16") || curDate.equals("Apr 13")
                 || curDate.equals("Apr 27") || curDate.equals("May 4")) {
