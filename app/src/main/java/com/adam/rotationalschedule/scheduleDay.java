@@ -62,17 +62,14 @@ public class scheduleDay extends AppCompatActivity {
                 period++;
             }
         }
-        //String sampleTime = "3:00:00 PM";
-        //String sampleTime2 = "12:00:00 PM";
+        int iHour = 0;
         String fullDate = DateFormat.getDateInstance().format(new Date());
-        //fullDate = "Mar 10, 2016" || "Mar 1, 2016"
-
         String fullTime = DateFormat.getTimeInstance().format(new Date());
-        //errorMessage.setText(fullTime);
-        //return;
-
-        //fullTime = "12:00:00 PM";
-        int iHour = Integer.parseInt(fullTime.substring(0, Math.min(fullTime.length(), 1)));
+        String sHour = fullTime.substring(1, Math.min(fullDate.length(), 2));
+        if(sHour.equals(":"))
+            iHour = Integer.parseInt(fullTime.substring(0, Math.min(fullTime.length(), 1)));
+        else
+            iHour = Integer.parseInt(fullTime.substring(0, Math.min(fullTime.length(), 2)));
         String curMonth = fullDate.substring(0, Math.min(fullDate.length(), 3));
         int day = 0;
         String AMPM = "";
@@ -123,6 +120,8 @@ public class scheduleDay extends AppCompatActivity {
         }
         else {
             errorMessage.setText("No school today.\n Enjoy your day off!");
+            //errorMessage.setText(Integer.toString(iHour));
+            //errorMessage.setText(sHour);
             schedule.setImageResource(R.drawable.freedom);
             return;
         }

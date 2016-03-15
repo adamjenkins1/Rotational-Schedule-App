@@ -1,6 +1,7 @@
 package com.adam.rotationalschedule;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -15,31 +16,29 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-
+    SharedPreferences prefs = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
         toolbar.setTitle("2015-16");
-
-        /*
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        */
-
-
     }
     @Override
     protected void onStart() {
+        prefs = getSharedPreferences("com.adam.app", MODE_PRIVATE);
+        boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean("isFirstRun", true);
+        if (isFirstRun){
+            startActivity(new Intent(MainActivity.this, popup.class));
+
+            getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                    .edit()
+                    .putBoolean("isFirstRun", false)
+                    .apply();
+        }
         super.onStart();
         TextView date = (TextView) findViewById(R.id.date);
         String curDate = DateFormat.getDateTimeInstance().format(new Date());
@@ -63,15 +62,18 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void checkFirstRun() {
+        boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean("isFirstRun", true);
+        if (isFirstRun){
+            startActivity(new Intent(MainActivity.this, popup.class));
 
+            getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                    .edit()
+                    .putBoolean("isFirstRun", false)
+                    .apply();
+        }
+    }
 
-    /*
-    Calendar c = Calendar.getInstance();
-    System.out.println("Current time => " + c.getTime());
-
-    SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
-    String formattedDate = df.format(c.getTime());
-    */
     /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
