@@ -45,7 +45,7 @@ public class scheduleDay extends AppCompatActivity {
                 period = 2;
 
             // all weekends in April and spring break should not be added
-            if( !(day >= 2 || day <= 10) && day != 16 && day != 17 && day != 23 && day != 24) {
+            if( !(day >= 2 && day <= 10) && day != 16 && day != 17 && day != 23 && day != 24) {
                 if(period >= 7)
                     period = 1;
                 hm.put("Apr " + Integer.toString(day), period);
@@ -120,6 +120,7 @@ public class scheduleDay extends AppCompatActivity {
         }
         else {
             errorMessage.setText("No school today.\n Enjoy your day off!");
+            //errorMessage.setText(fullDate);
             //errorMessage.setText(Integer.toString(iHour));
             //errorMessage.setText(sHour);
             schedule.setImageResource(R.drawable.freedom);

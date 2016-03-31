@@ -62,18 +62,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void checkFirstRun() {
-        boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean("isFirstRun", true);
-        if (isFirstRun){
-            startActivity(new Intent(MainActivity.this, popup.class));
-
-            getSharedPreferences("PREFERENCE", MODE_PRIVATE)
-                    .edit()
-                    .putBoolean("isFirstRun", false)
-                    .apply();
-        }
-    }
-
     /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
