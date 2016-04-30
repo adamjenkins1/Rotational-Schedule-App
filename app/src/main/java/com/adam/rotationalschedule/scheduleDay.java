@@ -101,8 +101,8 @@ public class scheduleDay extends AppCompatActivity {
                 day = 1;
                 curMonth = "Apr";
             }
-            else if(curDate.equals("Apr 29")) {
-                day = 2;
+            else if(curDate.equals("Apr 30")) {
+                day = 1;
                 curMonth = "May";
             }
             else {
