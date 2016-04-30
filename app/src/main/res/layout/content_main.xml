@@ -9,83 +9,83 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.adam.rotationalschedule.MainActivity"
+    tools:context="com.example.adam.myapplication.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:src="@drawable/tn_logo"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:maxWidth="150dp"
-        android:maxHeight="150dp"
-        android:adjustViewBounds="true"
-        android:scaleType="fitCenter"
-        />
-
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Rotational Schedule"
-        android:id="@+id/logoText"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/imageView"
-        android:layout_toEndOf="@+id/imageView"
-        android:layout_alignBottom="@+id/imageView"
-        android:textColor="#000000"
-        android:textSize="39dp"
-        android:textStyle="normal"
-        android:paddingTop="20dp"
-        android:paddingRight="-50dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Today&apos;s Schedule"
-        android:id="@+id/scheduleDay"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/logoText"
-        android:layout_alignEnd="@+id/logoText" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Monthly Schedule"
-        android:id="@+id/scheduleMonth"
-        android:layout_marginTop="41dp"
-        android:layout_below="@+id/scheduleDay"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="50dp"
+        android:id="@+id/totalTextView"
+        android:layout_above="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="45dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/date"
-        android:paddingLeft="7dp"
-        android:textStyle="italic"
-        android:layout_below="@+id/imageView"
-        android:layout_marginTop="29dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="21dp"
-        android:ellipsize="marquee"
-        android:scrollHorizontally="true"
-        android:singleLine="true"
-        android:marqueeRepeatLimit="marquee_forever"
-        android:text="Today is Feb 28, 2016 10:10:13 PM"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:freezesText="true"/>
+        android:text="What is"
+        android:id="@+id/textView"
+        android:layout_above="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="45dp" />
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/percentageText"
+        android:hint="Enter Percentage"
+        android:textAlignment="center"
+        android:layout_above="@+id/textView3"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/numberText"
+        android:hint="Enter Number"
+        android:textAlignment="center"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/percentageText"
+        android:layout_alignStart="@+id/percentageText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="%"
+        android:id="@+id/textView2"
+        android:layout_alignBottom="@+id/percentageText"
+        android:layout_toRightOf="@+id/percentageText"
+        android:layout_toEndOf="@+id/percentageText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="of"
+        android:id="@+id/textView3"
+        android:layout_above="@+id/numberText"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calculate"
+        android:id="@+id/calcBtn"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/numberText"
+        android:layout_alignRight="@+id/numberText"
+        android:layout_alignEnd="@+id/numberText"
+        android:layout_alignLeft="@+id/numberText"
+        android:layout_alignStart="@+id/numberText"
+        android:background="?attr/colorPrimary"
+        android:textColor="#FFFFFF" />
 </RelativeLayout>

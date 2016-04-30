@@ -1,7 +1,4 @@
 <resources>
-    <string name="app_name">Rotational Schedule</string>
+    <string name="app_name">Percentage Calculator</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_schedule_day">scheduleDay</string>
-    <string name="title_activity_schedule_month">scheduleMonth</string>
-    <string name="title_activity_popup">popup</string>
 </resources>
