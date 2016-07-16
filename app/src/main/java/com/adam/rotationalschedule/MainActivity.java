@@ -16,7 +16,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    SharedPreferences prefs = null;
+    //SharedPreferences prefs = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +25,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
-        toolbar.setTitle("2015-16");
+        toolbar.setTitle("2016-17");
     }
     @Override
     protected void onStart() {
+        /*
         prefs = getSharedPreferences("com.adam.app", MODE_PRIVATE);
         boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean("isFirstRun", true);
         if (isFirstRun){
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
                     .putBoolean("isFirstRun", false)
                     .apply();
         }
+        */
         super.onStart();
         TextView date = (TextView) findViewById(R.id.date);
         String curDate = DateFormat.getDateTimeInstance().format(new Date());

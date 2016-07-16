@@ -19,7 +19,7 @@ public class scheduleMonth extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule_month);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("2015-16");
+        toolbar.setTitle("2016-17");
         //setSupportActionBar(toolbar);
     }
 
@@ -27,6 +27,7 @@ public class scheduleMonth extends AppCompatActivity {
         super.onStart();
         final TextView errorMessage = (TextView) findViewById(R.id.errorMessage);
         final ImageView monthPicture = (ImageView) findViewById(R.id.monthPicture);
+        //final ImageView freedom = (ImageView) findViewById(R.id.freedom);
         Calendar calendar = Calendar.getInstance();
         String curDate = DateFormat.getDateInstance().format(new Date());
         Button next = (Button) findViewById(R.id.next);
@@ -41,7 +42,7 @@ public class scheduleMonth extends AppCompatActivity {
         errorMessage.setText("");
         final int[] monthArray = new int[12];
         monthArray[0] = R.drawable.january_nobg;
-        monthArray[1] = R.drawable.feburary_nobg;
+        monthArray[1] = R.drawable.february_nobg;
         monthArray[2] = R.drawable.march_nobg;
         monthArray[3] = R.drawable.april_nobg;
         monthArray[4] = R.drawable.may_nobg;
@@ -59,6 +60,8 @@ public class scheduleMonth extends AppCompatActivity {
         if(curMonth == 5 || curMonth == 6) {
             errorMessage.setText("Enjoy your break!\n School will resume in August");
             monthPicture.setImageResource(R.drawable.freedom);
+            //monthPicture.setImageResource(0);
+            //freedom.setImageResource(R.drawable.freedom);
         }
 
         next.setOnClickListener(new View.OnClickListener() {
