@@ -19,7 +19,7 @@ public class scheduleMonth extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule_month);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("2016-17");
+        toolbar.setTitle("2017-18");
         //setSupportActionBar(toolbar);
     }
 
