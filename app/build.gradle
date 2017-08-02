@@ -5,7 +5,7 @@ android {
         config {
             keyAlias 'myAndroidKey'
             keyPassword 'password'
-            storeFile file('/home/adam/AndroidStudioProjects/keystores/rotationalschedule.jks')
+            storeFile file('/home/adam/keystores/rotationalschedule.jks')
             storePassword 'password'
         }
     }
