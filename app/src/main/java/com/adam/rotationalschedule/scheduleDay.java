@@ -24,8 +24,8 @@ public class scheduleDay extends AppCompatActivity {
         TextView errorMessage = (TextView) findViewById(R.id.test);
         ImageView schedule = (ImageView) findViewById(R.id.daySchedule);
         ImageView finalSchedule = (ImageView) findViewById(R.id.finalSchedule);
-        Map<String, Integer> hm = new HashMap<String, Integer>();
-        Map<Integer, Integer> regularDays = new HashMap<Integer, Integer>();
+        Map<String, Integer> hm = new HashMap<>();
+        Map<Integer, Integer> regularDays = new HashMap<>();
         regularDays.put(1, R.drawable.start_with_1_nobg);
         regularDays.put(2, R.drawable.start_with_2_nobg);
         regularDays.put(3, R.drawable.start_with_3_nobg);
@@ -33,7 +33,7 @@ public class scheduleDay extends AppCompatActivity {
         regularDays.put(5, R.drawable.start_with_5_nobg);
         regularDays.put(6, R.drawable.start_with_6_nobg);
 
-        Map<Integer, Integer> collabDays = new HashMap<Integer, Integer>();
+        Map<Integer, Integer> collabDays = new HashMap<>();
         collabDays.put(1, R.drawable.start_with_1_collab_nobg);
         collabDays.put(2, R.drawable.start_with_2_collab_nobg);
         collabDays.put(3, R.drawable.start_with_3_collab_nobg);
@@ -41,7 +41,7 @@ public class scheduleDay extends AppCompatActivity {
         collabDays.put(5, R.drawable.start_with_5_collab_nobg);
         collabDays.put(6, R.drawable.start_with_6_collab_nobg);
 
-        Map<Integer, Integer> minDays = new HashMap<Integer, Integer>();
+        Map<Integer, Integer> minDays = new HashMap<>();
         minDays.put(1, R.drawable.start_with_1_min_nobg);
         minDays.put(2, R.drawable.start_with_2_min_nobg);
         minDays.put(3, R.drawable.start_with_3_min_nobg);

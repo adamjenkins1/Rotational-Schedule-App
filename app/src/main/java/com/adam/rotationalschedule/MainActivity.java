@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
-        toolbar.setTitle("2016-17");
+        toolbar.setTitle("2017-18");
     }
     @Override
     protected void onStart() {
