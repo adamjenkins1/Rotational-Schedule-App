@@ -18,7 +18,7 @@ public class scheduleDay extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule_day);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("2016-17");
+        toolbar.setTitle("2017-18");
         //setSupportActionBar(toolbar);
 
         TextView errorMessage = (TextView) findViewById(R.id.test);
@@ -52,10 +52,10 @@ public class scheduleDay extends AppCompatActivity {
         int period = 1;
         for (int day = 10; day < 32; day++)
         {
-            if(day != 13 && day != 14 && day != 20 && day != 21 && day != 27 && day != 28) {
+            if(day != 12 && day != 13 && day != 19 && day != 20 && day != 26 && day != 27) {
                 if(period >= 7)
                     period = 1;
-                if(day == 17)
+                if(day == 16)
                     hm.put("Aug " + Integer.toString(day), collabDays.get(period));
                 else if(day == 10)
                     hm.put("Aug " + Integer.toString(day), minDays.get(period));
@@ -65,14 +65,14 @@ public class scheduleDay extends AppCompatActivity {
             }
         }
 
-        for (int day = 1; day < 31; day++)
+        for (int day = 1; day < 30; day++)
         {
-            if(day != 3 && day != 4 && day != 10 && day != 11 && day != 17 && day != 18
-                    && day != 24 && day != 25) {
+            if(day != 2 && day != 3 && day != 9 && day != 10 && day != 16 && day != 17
+                    && day != 23 && day != 24) {
                 if(period >= 7)
                     period = 1;
-                if(day != 5) {
-                    if(day == 7 || day == 21)
+                if(day != 4) {
+                    if(day == 6 || day == 20)
                         hm.put("Sep " + Integer.toString(day), collabDays.get(period));
                     else
                         hm.put("Sep " + Integer.toString(day), regularDays.get(period));
@@ -81,14 +81,14 @@ public class scheduleDay extends AppCompatActivity {
             }
         }
 
-        for (int day = 3; day < 32; day++)
+        for (int day = 2; day < 32; day++)
         {
-            if(day != 8 && day != 9 && day != 15 && day != 16 && day != 22 && day != 23
-                    && day != 29 && day != 30) {
+            if(day != 7 && day != 8 && day != 14 && day != 15 && day != 21 && day != 22
+                    && day != 28 && day != 29) {
                 if(period >= 7)
                     period = 1;
-                if(day != 7 && day != 10) {
-                    if(day == 5 || day == 19)
+                if(day != 9) {
+                    if(day == 4 || day == 18)
                         hm.put("Oct " + Integer.toString(day), collabDays.get(period));
                     else
                         hm.put("Oct " + Integer.toString(day), regularDays.get(period));
@@ -99,15 +99,13 @@ public class scheduleDay extends AppCompatActivity {
 
         for (int day = 1; day < 31; day++)
         {
-            if(day != 5 && day != 6 && day != 12 && day != 13 && day != 19 && day != 20
-                    && day != 26 && day != 27) {
+            if(day != 4 && day != 5 && day != 11 && day != 12 && day != 18 && day != 19
+                    && day != 25 && day != 26) {
                 if(period >= 7)
                     period = 1;
-                if(day != 11 && day != 24 && day != 25) {
-                    if(day == 2 || day == 16)
+                if(day != 10 && (day < 20 || day > 24)) {
+                    if(day == 1 || day == 15)
                         hm.put("Nov " + Integer.toString(day), collabDays.get(period));
-                    else if(day == 23)
-                        hm.put("Nov " + Integer.toString(day), minDays.get(period));
                     else
                         hm.put("Nov " + Integer.toString(day), regularDays.get(period));
                 }
@@ -115,12 +113,12 @@ public class scheduleDay extends AppCompatActivity {
             }
         }
 
-        for (int day = 1; day < 14; day++)
+        for (int day = 1; day < 19; day++)
         {
-            if(day != 3 && day != 4 && day != 10 && day != 11) {
+            if(day != 2 && day != 3 && day != 9 && day != 10 && day != 16 && day != 17) {
                 if(period >= 7)
                     period = 1;
-                if(day == 7)
+                if(day == 6)
                     hm.put("Dec " + Integer.toString(day), collabDays.get(period));
                 else
                     hm.put("Dec " + Integer.toString(day), regularDays.get(period));
@@ -128,19 +126,18 @@ public class scheduleDay extends AppCompatActivity {
             }
         }
 
-        hm.put("Dec 14", R.drawable.finals_day_1_nobg);
-        hm.put("Dec 15", R.drawable.finals_day_2_nobg);
-        hm.put("Dec 16", R.drawable.finals_day_3_nobg);
+        hm.put("Dec 19", R.drawable.finals_day_1_nobg);
+        hm.put("Dec 20", R.drawable.finals_day_2_nobg);
+        hm.put("Dec 21", R.drawable.finals_day_3_nobg);
 
-        period = 6;
-        for (int day = 3; day < 32; day++)
+        period = 1;
+        for (int day = 8; day < 32; day++)
         {
-            if(day != 7 && day != 8 && day != 14 && day != 15 && day != 21 && day != 22
-                    && day != 28 && day != 29) {
+            if(day != 13 && day != 14 && day != 20 && day != 21 && day != 27 && day != 28) {
                 if(period >= 7)
                     period = 1;
-                if(day != 16) {
-                    if(day == 4 || day == 18)
+                if(day != 15) {
+                    if(day == 17 || day == 31)
                         hm.put("Jan " + Integer.toString(day), collabDays.get(period));
                     else
                         hm.put("Jan " + Integer.toString(day), regularDays.get(period));
@@ -151,8 +148,8 @@ public class scheduleDay extends AppCompatActivity {
 
         for (int day = 1; day < 29; day++)
         {
-            if(day != 4 && day != 5 && day != 11 && day != 12 && day != 18 && day != 19
-                    && day != 25 && day != 26) {
+            if(day != 3 && day != 4 && day != 10 && day != 11 && day != 17 && day != 18
+                    && day != 24 && day != 25) {
                 if(period >= 7)
                     period = 1;
                 if(day < 20 || day > 24) {
@@ -165,13 +162,13 @@ public class scheduleDay extends AppCompatActivity {
             }
         }
 
-        for (int day = 1; day < 32; day++)
+        for (int day = 1; day < 31; day++)
         {
-            if(day != 4 && day != 5 && day != 11 && day != 12 && day != 18 && day != 19
-                    && day != 25 && day != 26) {
+            if(day != 3 && day != 4 && day != 10 && day != 11 && day != 17 && day != 18
+                    && day != 24 && day != 25) {
                 if(period >= 7)
                     period = 1;
-                    if(day == 1 || day == 15)
+                    if(day == 7 || day == 21)
                         hm.put("Mar " + Integer.toString(day), collabDays.get(period));
                     else
                         hm.put("Mar " + Integer.toString(day), regularDays.get(period));
@@ -179,13 +176,14 @@ public class scheduleDay extends AppCompatActivity {
             }
         }
 
-        for (int day = 3; day < 29; day++)
+        for (int day = 2; day < 31; day++)
         {
-            if(day != 8 && day != 9 && day != 15 && day != 16 && day != 22 && day != 23) {
+            if(day != 7 && day != 8 && day != 14 && day != 15 && day != 21 && day != 22
+                    && day != 28 && day != 29) {
                 if(period >= 7)
                     period = 1;
-                if(day < 10 || day > 14) {
-                    if(day == 5 || day == 19)
+                if(day < 9 || day > 13) {
+                    if(day == 4 || day == 25)
                         hm.put("Apr " + Integer.toString(day), collabDays.get(period));
                     else
                         hm.put("Apr " + Integer.toString(day), regularDays.get(period));
@@ -194,21 +192,22 @@ public class scheduleDay extends AppCompatActivity {
             }
         }
 
-        for (int day = 1; day < 24; day++)
+        for (int day = 1; day < 29; day++)
         {
-            if(day != 6 && day != 7 && day != 13 && day != 14 && day != 20 && day != 21) {
+            if(day != 5 && day != 6 && day != 12 && day != 13 && day != 19 && day != 20
+                    && day != 26 && day != 27) {
                 if(period >= 7)
                     period = 1;
-                    if(day == 3)
+                    if(day == 9)
                         hm.put("May " + Integer.toString(day), collabDays.get(period));
                     else
                         hm.put("May " + Integer.toString(day), regularDays.get(period));
                 period++;
             }
         }
-        hm.put("May 24", R.drawable.finals_day_1_nobg);
-        hm.put("May 25", R.drawable.finals_day_2_nobg);
-        hm.put("May 26", R.drawable.finals_day_3_nobg);
+        hm.put("May 29", R.drawable.finals_day_1_nobg);
+        hm.put("May 30", R.drawable.finals_day_2_nobg);
+        hm.put("May 31", R.drawable.finals_day_3_nobg);
         int iHour = 0;
         String fullDate = DateFormat.getDateInstance().format(new Date());
         String fullTime = DateFormat.getTimeInstance().format(new Date());
@@ -242,7 +241,7 @@ public class scheduleDay extends AppCompatActivity {
                 day = 1;
                 curMonth = "Sep ";
             }
-            else if(curDate.equals("Sep 30")) {
+            else if(curDate.equals("Sep 29")) {
                 day = 1;
                 curMonth = "Oct ";
             }
@@ -254,7 +253,7 @@ public class scheduleDay extends AppCompatActivity {
                 day = 1;
                 curMonth = "Dec ";
             }
-            else if(curDate.equals("Dec 31")) {
+            else if(curDate.equals("Dec 29")) {
                 day = 1;
                 curMonth = "Jan ";
             }
@@ -266,7 +265,7 @@ public class scheduleDay extends AppCompatActivity {
                 day = 1;
                 curMonth = "Mar ";
             }
-            else if(curDate.equals("Mar 31")) {
+            else if(curDate.equals("Mar 30")) {
                 day = 1;
                 curMonth = "Apr ";
             }
@@ -285,8 +284,8 @@ public class scheduleDay extends AppCompatActivity {
         //errorMessage.setText(curDate);
         //int curPeriod = 0;
         if(hm.get(curDate) != null) {
-            if(curDate.equals("Dec 14") || curDate.equals("Dec 15") || curDate.equals("Dec 16")
-                    || curDate.equals("May 24") || curDate.equals("May 25") || curDate.equals("May 26"))
+            if(curDate.equals("Dec 19") || curDate.equals("Dec 20") || curDate.equals("Dec 21")
+                    || curDate.equals("May 29") || curDate.equals("May 30") || curDate.equals("May 31"))
                 finalSchedule.setImageResource(hm.get(curDate));
             else
                 schedule.setImageResource(hm.get(curDate));
